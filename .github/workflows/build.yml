@@ -46,4 +46,4 @@ jobs:
       - name: Build Python package
         run: poetry run maturin develop
       - name: Test
-        run: poetry run pytest tests
+        run: poetry run pytest -Werror tests
