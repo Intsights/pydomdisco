@@ -46,8 +46,8 @@ jobs:
           maturin-version: latest
           command: build
           manylinux: 2014
-          args: --out=src --interpreter=python3.9 --no-sdist --strip
-      - name: Install Package
-        run: python -m pip install src/*.whl
+          args: --out=dist --interpreter=python --no-sdist --strip
+      - name: Install Built Wheel
+        run: python -m pip install pydomdisco --no-index --find-links dist --force-reinstall
       - name: Test
         run: python -m unittest discover tests
