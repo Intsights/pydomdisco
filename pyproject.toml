@@ -1,0 +1,40 @@
+[build-system]
+requires = ["maturin"]
+build-backend = "maturin"
+
+[tool.maturin]
+sdist-include = [
+    "src",
+    "Cargo.toml",
+    "pydomdisco",
+]
+manylinux = "2014"
+strip = true
+
+[tool.poetry]
+name = "pydomdisco"
+version = "0.1.0"
+authors = ["Gal Ben David <gal@intsights.com>"]
+description = "A fast async domain discovery tool written in Rust"
+readme = "README.md"
+repository = "https://github.com/intsights/pydomdisco"
+license = "MIT"
+keywords = [
+    "domain",
+    "discovery",
+    "dns",
+    "authoritative",
+    "resolver",
+    "rust",
+    "async",
+    "pyo3",
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+wheel = "*"
+pytest-runner = "*"
+maturin = "*"
