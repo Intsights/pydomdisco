@@ -13,7 +13,7 @@ strip = true
 
 [tool.poetry]
 name = "pydomdisco"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Gal Ben David <gal@intsights.com>"]
 description = "A fast async domain discovery tool written in Rust"
 readme = "README.md"
