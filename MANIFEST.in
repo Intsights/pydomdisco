@@ -1,4 +1,0 @@
-include Cargo.toml
-include pyproject.toml
-recursive-include src *
-recursive-include pydomdisco *
