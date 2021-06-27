@@ -46,7 +46,7 @@ jobs:
           maturin-version: latest
           command: build
           manylinux: 2014
-          args: --out=dist --interpreter=python --no-sdist --strip
+          args: --out=dist --interpreter=python${{ matrix.python-version }} --no-sdist --strip
       - name: Install Built Wheel
         run: python -m pip install pydomdisco --no-index --find-links dist --force-reinstall
       - name: Test
