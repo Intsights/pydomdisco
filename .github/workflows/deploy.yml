@@ -40,6 +40,6 @@ jobs:
           maturin-version: latest
           command: publish
           manylinux: 2014
-          args: --username=__token__ --no-sdist
+          args: --username=__token__ --no-sdist --interpreter=python
         env:
           MATURIN_PASSWORD: ${{ secrets.pypi_password }}
