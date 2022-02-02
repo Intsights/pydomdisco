@@ -12,7 +12,6 @@ use std::time::Duration;
 /// example:
 ///     pydomdisco.Discoverer()
 #[pyclass]
-#[text_signature = "(tld_to_nameservers_ips, nameserver_timeout, /)"]
 struct Discoverer {
     discoverer: discovery::Discoverer,
 }
@@ -48,7 +47,6 @@ impl Discoverer {
     ///             'facebook',
     ///         ],
     ///     )
-    #[text_signature = "(names, chunk_size, /)"]
     fn discover(
         &mut self,
         py: Python,
@@ -75,7 +73,6 @@ impl Discoverer {
     ///         tlds=['com', 'net', 'org'],
     ///     )
     #[staticmethod]
-    #[text_signature = "(tlds, /)"]
     fn generate_tld_to_nameservers_ips(
         py: Python,
         tlds: Vec<String>,
