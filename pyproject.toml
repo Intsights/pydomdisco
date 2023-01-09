@@ -11,7 +11,7 @@ sdist-include = [
 
 [tool.poetry]
 name = "pydomdisco"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["Gal Ben David <gal@intsights.com>"]
 description = "A fast async domain discovery tool written in Rust"
 readme = "README.md"
@@ -36,6 +36,7 @@ classifiers = [
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Rust",
 ]
 

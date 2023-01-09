@@ -1,6 +1,6 @@
 [package]
 name = "pydomdisco"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["Gal Ben David <gal@intsights.com>"]
 edition = "2021"
 description = "A fast async domain discovery tool written in Rust"
@@ -27,6 +27,7 @@ classifier = [
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
 ]
 
 [lib]
