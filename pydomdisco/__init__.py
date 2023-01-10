@@ -30,36 +30,36 @@ class Discoverer:
     def get_root_tld_to_nameservers_ips(
         cls,
     ) -> typing.Dict[str, typing.List[str]]:
-        with importlib.resources.open_binary(
+        root_tld_to_nameservers_ips_file = importlib.resources.files(
             package=__package__,
-            resource='root_tld_to_nameservers_ips.pkl',
-        ) as root_tld_to_nameservers_ips_file:
-            return pickle.load(
-                file=root_tld_to_nameservers_ips_file,
-            )
+        ).joinpath('root_tld_to_nameservers_ips.pkl').read_bytes()
+
+        return pickle.load(
+            file=root_tld_to_nameservers_ips_file,
+        )
 
     @classmethod
     def get_psl_tld_to_nameservers_ips(
         cls,
     ) -> typing.Dict[str, typing.List[str]]:
-        with importlib.resources.open_binary(
+        psl_tlds_file = importlib.resources.files(
             package=__package__,
-            resource='psl_tlds.pkl',
-        ) as psl_tlds_file:
-            psl_tlds = pickle.load(
-                file=psl_tlds_file,
-            )
+        ).joinpath('psl_tlds.pkl').read_bytes()
 
-            root_tld_to_nameservers_ips = cls.get_root_tld_to_nameservers_ips()
+        psl_tlds = pickle.load(
+            file=psl_tlds_file,
+        )
 
-            psl_tlds = [
-                tld
-                for tld in psl_tlds
-                if tld not in root_tld_to_nameservers_ips
-            ]
+        root_tld_to_nameservers_ips = cls.get_root_tld_to_nameservers_ips()
 
-            psl_tld_to_nameservers_ips = pydomdisco.Discoverer.generate_tld_to_nameservers_ips(
-                tlds=psl_tlds,
-            )
+        psl_tlds = [
+            tld
+            for tld in psl_tlds
+            if tld not in root_tld_to_nameservers_ips
+        ]
 
-            return psl_tld_to_nameservers_ips
+        psl_tld_to_nameservers_ips = pydomdisco.Discoverer.generate_tld_to_nameservers_ips(
+            tlds=psl_tlds,
+        )
+
+        return psl_tld_to_nameservers_ips
