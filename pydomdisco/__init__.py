@@ -1,8 +1,12 @@
 import importlib.resources
 import pickle
+import sys
 import typing
 
 from . import pydomdisco
+
+PY_VERSION_MAJOR = sys.version_info.major
+PY_VERSION_MINOR = sys.version_info.minor
 
 
 class Discoverer:
@@ -26,45 +30,59 @@ class Discoverer:
             chunk_size=chunk_size,
         )
 
+    @staticmethod
+    def pickle_load_pkl_file(
+        file_name: str,
+    ):
+        if PY_VERSION_MAJOR >= 3:
+            if PY_VERSION_MINOR >= 9:
+                with importlib.resources.files(
+                    __package__,
+                ).joinpath(
+                    file_name,
+                ).open(
+                    'rb',
+                ) as pkl_file:
+                    return pickle.load(
+                        file=pkl_file,
+                    )
+            elif PY_VERSION_MINOR <= 8:
+                pkl_file = importlib.resources.open_binary(
+                    package=__package__,
+                    resource=file_name,
+                )
+                return pickle.load(
+                    file=pkl_file,
+                )
+        raise RuntimeError(
+            "Not supported python version",
+        )
+
     @classmethod
     def get_root_tld_to_nameservers_ips(
         cls,
     ) -> typing.Dict[str, typing.List[str]]:
-        with importlib.resources.files(
-            __package__
-        ).joinpath(
-            'root_tld_to_nameservers_ips.pkl'
-        ).open(
-            'rb'
-        ) as root_tld_to_nameservers_ips_file:
-            return pickle.load(
-                file=root_tld_to_nameservers_ips_file,
-            )
+        return cls.pickle_load_pkl_file(
+            file_name='root_tld_to_nameservers_ips.pkl',
+        )
 
     @classmethod
     def get_psl_tld_to_nameservers_ips(
         cls,
     ) -> typing.Dict[str, typing.List[str]]:
-        with importlib.resources.files(
-            __package__
-        ).joinpath(
-            'psl_tlds.pkl'
-        ).open(
-            'rb'
-        ) as psl_tlds_file:
-            psl_tlds = pickle.load(
-                file=psl_tlds_file,
-            )
-            root_tld_to_nameservers_ips = cls.get_root_tld_to_nameservers_ips()
+        psl_tlds = cls.pickle_load_pkl_file(
+            file_name='psl_tlds.pkl',
+        )
+        root_tld_to_nameservers_ips = cls.get_root_tld_to_nameservers_ips()
 
-            psl_tlds = [
-                tld
-                for tld in psl_tlds
-                if tld not in root_tld_to_nameservers_ips
-            ]
+        psl_tlds = [
+            tld
+            for tld in psl_tlds
+            if tld not in root_tld_to_nameservers_ips
+        ]
 
-            psl_tld_to_nameservers_ips = pydomdisco.Discoverer.generate_tld_to_nameservers_ips(
-                tlds=psl_tlds,
-            )
+        psl_tld_to_nameservers_ips = pydomdisco.Discoverer.generate_tld_to_nameservers_ips(
+            tlds=psl_tlds,
+        )
 
-            return psl_tld_to_nameservers_ips
+        return psl_tld_to_nameservers_ips
