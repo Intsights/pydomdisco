@@ -30,7 +30,7 @@ class Discoverer:
     def get_root_tld_to_nameservers_ips(
         cls,
     ) -> typing.Dict[str, typing.List[str]]:
-        with importlib.resources.open_binary(
+        with importlib.resources.read_binary(
             package=__package__,
             resource='root_tld_to_nameservers_ips.pkl',
         ) as root_tld_to_nameservers_ips_file:
@@ -42,7 +42,7 @@ class Discoverer:
     def get_psl_tld_to_nameservers_ips(
         cls,
     ) -> typing.Dict[str, typing.List[str]]:
-        with importlib.resources.open_binary(
+        with importlib.resources.read_binary(
             package=__package__,
             resource='psl_tlds.pkl',
         ) as psl_tlds_file:
