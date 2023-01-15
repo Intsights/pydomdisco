@@ -46,7 +46,15 @@ class Discoverer:
                     return pickle.load(
                         file=pkl_file,
                     )
-            elif PY_VERSION_MINOR <= 8:
+            elif PY_VERSION_MINOR == 8:
+                with importlib.resources.open_binary(
+                    package=__package__,
+                    resource=file_name,
+                ) as pkl_file:
+                    return pickle.load(
+                        file=pkl_file,
+                    )
+            elif PY_VERSION_MINOR <= 7:
                 pkl_file = importlib.resources.open_binary(
                     package=__package__,
                     resource=file_name,
