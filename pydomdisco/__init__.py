@@ -34,7 +34,7 @@ class Discoverer:
     def pickle_load_pkl_file(
         file_name: str,
     ):
-        if PY_VERSION_MAJOR >= 3:
+        if PY_VERSION_MAJOR == 3:
             if PY_VERSION_MINOR >= 9:
                 with importlib.resources.files(
                     __package__,
