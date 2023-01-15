@@ -33,7 +33,7 @@ class Discoverer:
         with importlib.resources.files(
             __package__
         ).joinpath(
-            'root_tld_to_nameservers_ips'
+            'root_tld_to_nameservers_ips.pkl'
         ).open(
             'rb'
         ) as root_tld_to_nameservers_ips_file:
