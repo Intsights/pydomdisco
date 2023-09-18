@@ -1,7 +1,7 @@
 [project]
 name = "pydomdisco"
 version = "0.4.0"
-description = "A blazingly fast domain extraction library written in Rust"
+description = "A fast async domain discovery tool written in Rust"
 authors = [
   {email = "gal@intsights.com"},
   {name = "Gal Ben David"}
