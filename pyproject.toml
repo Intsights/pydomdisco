@@ -1,6 +1,6 @@
 [project]
 name = "pydomdisco"
-version = "0.4.0"
+version = "0.4.1"
 description = "A fast async domain discovery tool written in Rust"
 authors = [
   {email = "gal@intsights.com"},
@@ -39,7 +39,7 @@ authors = ["Gal Ben David <gal@intsights.com>"]
 description = "A fast async domain discovery tool written in Rust"
 readme = "README.md"
 repository = "https://github.com/intsights/pydomdisco"
-license = "MIT"
+license = {file = "LICENSE"}
 keywords = [
     "domain",
     "discovery",
