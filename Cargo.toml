@@ -1,9 +1,9 @@
 [package]
 name = "pydomdisco"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["Gal Ben David <gal@intsights.com>"]
 edition = "2021"
-description = "A fast async domain discovery tool written in Rust"
+description = "A blazingly fast domain extraction library written in Rust"
 readme = "README.md"
 repository = "https://github.com/intsights/pydomdisco"
 homepage = "https://github.com/intsights/pydomdisco"
@@ -17,17 +17,6 @@ keywords = [
     "rust",
     "async",
     "pyo3",
-]
-
-[package.metadata.maturin]
-requires-python = ">=3.7"
-classifier = [
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
 ]
 
 [lib]
