@@ -71,7 +71,16 @@ python = "^3.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
-gitpython = { git = "https://github.com/gitpython-developers/GitPython" }
 wheel = "*"
 pytest-runner = "*"
 maturin = "*"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+    "--tb=native",
+    "--pythonwarnings=all",
+]
+testpaths = [
+    "tests",
+]
