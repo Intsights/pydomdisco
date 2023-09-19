@@ -7,7 +7,7 @@ authors = [
   {name = "Gal Ben David"}
 ]
 requires-python = ">=3.7"
-license = "MIT"
+license = {file = "LICENSE"}
 classifiers = [
   "License :: OSI Approved :: MIT License",
   "Operating System :: MacOS",
@@ -39,7 +39,7 @@ authors = ["Gal Ben David <gal@intsights.com>"]
 description = "A fast async domain discovery tool written in Rust"
 readme = "README.md"
 repository = "https://github.com/intsights/pydomdisco"
-license = {file = "LICENSE"}
+license = "MIT"
 keywords = [
     "domain",
     "discovery",
