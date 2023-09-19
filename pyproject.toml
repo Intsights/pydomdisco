@@ -7,7 +7,7 @@ authors = [
   {name = "Gal Ben David"}
 ]
 requires-python = ">=3.7"
-license = {file = "LICENSE"}
+license = "MIT"
 classifiers = [
   "License :: OSI Approved :: MIT License",
   "Operating System :: MacOS",
@@ -22,16 +22,14 @@ classifiers = [
 ]
 
 [build-system]
-requires = ["maturin>=0.12,<0.13"]
+requires = ["maturin>=0.11,<0.12"]
 build-backend = "maturin"
 
 [tool.maturin]
 sdist-include = [
+    "src",
     "Cargo.toml",
-    "pyproject.toml",
-    "pydomdisco/*.py",
-    "pydomdisco/*.pyi",
-    "src/*",
+    "pydomdisco",
 ]
 
 [tool.poetry]
@@ -41,8 +39,7 @@ authors = ["Gal Ben David <gal@intsights.com>"]
 description = "A fast async domain discovery tool written in Rust"
 readme = "README.md"
 repository = "https://github.com/intsights/pydomdisco"
-homepage = "https://github.com/intsights/pydomdisco"
-license = "MIT"
+license = {file = "LICENSE"}
 keywords = [
     "domain",
     "discovery",
@@ -74,13 +71,3 @@ pytest = "*"
 wheel = "*"
 pytest-runner = "*"
 maturin = "*"
-
-[tool.pytest.ini_options]
-minversion = "6.0"
-addopts = [
-    "--tb=native",
-    "--pythonwarnings=all",
-]
-testpaths = [
-    "tests",
-]
