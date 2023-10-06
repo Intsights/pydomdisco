@@ -1,0 +1,15 @@
+---
+info:
+  title: Pydomdisco
+  description: A fast async domain discovery tool written in Rust
+  x-cortex-git:
+    github:
+      alias: intsightsorg
+      repository: Intsights/pydomdisco
+  x-cortex-tag: pydomdisco
+  x-cortex-type: service
+  x-cortex-domain-parents:
+  - tag: threatintel-rd
+openapi: 3.0.1
+servers:
+- url: "/"
