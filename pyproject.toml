@@ -1,6 +1,6 @@
 [project]
 name = "pydomdisco"
-version = "0.4.2"
+version = "0.4.3"
 description = "A fast async domain discovery tool written in Rust"
 authors = [
   {email = "gal@intsights.com"},
@@ -34,7 +34,7 @@ sdist-include = [
 
 [tool.poetry]
 name = "pydomdisco"
-version = "0.4.2"
+version = "0.4.3"
 authors = ["Gal Ben David <gal@intsights.com>"]
 description = "A fast async domain discovery tool written in Rust"
 readme = "README.md"
