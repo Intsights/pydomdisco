@@ -1,6 +1,6 @@
 [package]
 name = "pydomdisco"
-version = "0.4.1"
+version = "0.4.4"
 authors = ["Gal Ben David <gal@intsights.com>"]
 edition = "2021"
 description = "A fast async domain discovery tool written in Rust"
