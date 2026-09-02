@@ -29,8 +29,8 @@ features = ["extension-module"]
 
 [dependencies]
 tokio = { version = "1", features = ["rt", "sync"] }
-trust-dns-resolver = "0.20"
-trust-dns-client = "0.20"
+trust-dns-resolver = "0.23"
+trust-dns-client = "0.23"
 
 [profile.release]
 # lto = true
